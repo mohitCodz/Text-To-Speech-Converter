@@ -110,11 +110,11 @@ button:hover {
   transform: scale(1.08);
 }
 select {
-  width: 400px;        
+  width: 150px;        
   max-width: 90%;      
   height: 45px;        
   background: #2003ff;  
-  color: #ff0000;      
+  color: white;      
   font-size: 16px;
   border: none;
   border-radius: 35px;
