@@ -86,7 +86,7 @@ textarea:focus {
   box-shadow: 0px 0px 12px rgba(0, 245, 255, 0.7);
 }
 button {
-  background: #111; /* dark solid background */
+  background: #111; 
   color: #fff; 
   font-size: 18px;
   padding: 12px 35px;
@@ -97,7 +97,7 @@ button {
   z-index: 2;
   position: relative;
   box-shadow: 0px 0px 12px rgba(0, 245, 255, 0.9),
-              0px 0px 20px rgba(0, 0, 0, 0.8); /* dark glow around for contrast */
+              0px 0px 20px rgba(0, 0, 0, 0.8); 
   transition: all 0.3s ease-in-out;
 }
 
@@ -106,16 +106,33 @@ button:hover {
   color: #111;
   border-color: #fff;
   box-shadow: 0px 0px 25px rgba(0, 245, 255, 1),
-              0px 0px 35px rgba(0, 0, 0, 0.9); /* neon + dark halo */
+              0px 0px 35px rgba(0, 0, 0, 0.9);
   transform: scale(1.08);
 }
-select{
-  flex: 1;
-  color: #fff;
-  background: #403d84;
-  height: 50px;
-  padding: 0 20px;
-  outline: 0;
-  border: 0;
+select {
+  width: 400px;        
+  max-width: 90%;      
+  height: 45px;        
+  background: #2003ff;  
+  color: #ff0000;      
+  font-size: 16px;
+  border: none;
   border-radius: 35px;
+  padding: 0 20px;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600; 
+  border: 2px solid #fff; 
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.7);
+    transition: all 0.2s ease-in-out;
+}
+
+select:hover{
+   background: #00f5ff; 
+  color: #111;
+  border-color: #fff;
+  box-shadow: 0px 0px 25px rgba(0, 245, 255, 1),
+              0px 0px 35px rgba(0, 0, 0, 0.9); 
+  transform: scale(1.08);
 }
