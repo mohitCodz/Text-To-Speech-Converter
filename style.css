@@ -10,19 +10,20 @@
   min-height: 100vh;
   background: linear-gradient(45deg, #010758, #490d61);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative; /* needed for ::before */
-  overflow: hidden;   /* hide extra glow */
+  position: relative;
+  overflow: hidden;
+  text-align: center;
 }
 
-/* glowing background layer */
 .outside::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 200%;   /* make it bigger so movement looks smooth */
+  width: 200%;
   height: 200%;
   background: radial-gradient(circle at 30% 30%, #00f5ff, transparent 60%),
               radial-gradient(circle at 70% 70%, #ff00ff, transparent 60%),
@@ -30,10 +31,9 @@
   filter: blur(120px);
   animation: move 12s infinite alternate ease-in-out;
   transform-style: preserve-3d;
-  z-index: 0; /* behind content */
+  z-index: 0;
 }
 
-/* Animation */
 @keyframes move {
   0% {
     transform: translate(-10%, -10%) rotateX(0deg) rotateY(0deg);
@@ -46,19 +46,21 @@
   }
 }
 
-.outside h1{
+.outside h1 {
   font-size: 45px;
   font-weight: 500;
-  margin-top: -50px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   color: white;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   border: none;
+  z-index: 1;
 }
-.outside h1 span{
-  color:#98e122;
+
+.outside h1 span {
+  color: #98e122;
 }
-textarea{
+
+textarea {
   width: 600px;
   height: 250px;
   background: #403d84;
@@ -67,5 +69,7 @@ textarea{
   border: 0;
   outline: 0;
   padding: 10px;
-  
+  border-radius: 10px;
+  margin-bottom: 30px;
+  z-index: 1;
 }
