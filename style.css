@@ -138,3 +138,12 @@ select:hover{
               0px 0px 35px rgba(0, 0, 0, 0.9); 
   transform: scale(1.08);
 }
+textarea::placeholder{
+   font-size: 2rem;
+   color: white;
+    text-shadow: 
+    0 0 2px #00f5ff,
+    0 0 3px #00f5ff,
+    0 0 4px #00f5ff,
+    0 0 5px #000000; 
+}
