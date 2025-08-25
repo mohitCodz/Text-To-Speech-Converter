@@ -24,6 +24,6 @@ document.querySelector("button").addEventListener("click", () => {
 });
 
 // stop-btn
-document.querySelector("stopBtn").addEventListener("click",()=>{
-    window.speechSynthesis.cancel()
+document.querySelector("#stopBtn").addEventListener("click",()=>{
+    window.speechSynthesis.cancel();
 })
