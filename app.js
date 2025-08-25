@@ -1,24 +1,39 @@
 let speech = new SpeechSynthesisUtterance();
 let voices = [];
-let voicesSelect = document.querySelector("select");
+const voicesSelect = document.querySelector("select");
 
-window.speechSynthesis.onvoiceschanged = () => {
+// Function to populate voices
+function populateVoices() {
     voices = window.speechSynthesis.getVoices();
-    speech.voice = voices[0];
-
-    // Clear old options first
+    
+    // Clear old options
     voicesSelect.innerHTML = "";
 
-    // Add each voice to the select dropdown
     voices.forEach((voice, i) => {
         let option = new Option(`${voice.name} (${voice.lang})`, i);
         voicesSelect.add(option);
     });
-};
 
-// When button is clicked, speak text with selected voice
+    // Set default voice
+    if (voices.length > 0) speech.voice = voices[0];
+}
+
+// Some browsers require this event
+window.speechSynthesis.onvoiceschanged = populateVoices;
+
+// Initial population (in case voices are already loaded)
+populateVoices();
+
 document.querySelector("button").addEventListener("click", () => {
-    speech.text = document.querySelector("textarea").value;
-    speech.voice = voices[voicesSelect.value]; // set chosen voice
+    const text = document.querySelector("textarea").value;
+    if (!text) return; // Do nothing if textarea is empty
+
+    // Cancel any ongoing speech
+    window.speechSynthesis.cancel();
+
+    speech.text = text;
+    const selectedIndex = parseInt(voicesSelect.value, 10);
+    speech.voice = voices[selectedIndex];
+    
     window.speechSynthesis.speak(speech);
 });
