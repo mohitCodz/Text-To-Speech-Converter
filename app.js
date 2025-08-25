@@ -22,8 +22,8 @@ document.querySelector("button").addEventListener("click", () => {
     speech.voice = voices[voicesSelect.value]; // set chosen voice
     window.speechSynthesis.speak(speech);
 });
-
-// stop-btn
-document.querySelector("#stopBtn").addEventListener("click",()=>{
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("#stopBtn").addEventListener("click", () => {
     window.speechSynthesis.cancel();
-})
+  });
+});
