@@ -1,6 +1,6 @@
 let speech = new SpeechSynthesisUtterance();
 let voices = [];
-const voicesSelect = document.querySelector("select");
+const voicesSelect = document.querySelector("#voiceSelect");
 
 // Function to populate voices
 function populateVoices() {
@@ -24,7 +24,8 @@ window.speechSynthesis.onvoiceschanged = populateVoices;
 // Initial population (in case voices are already loaded)
 populateVoices();
 
-document.querySelector("button").addEventListener("click", () => {
+// Convert button
+document.querySelector("#convertBtn").addEventListener("click", () => {
     const text = document.querySelector("textarea").value;
     if (!text) return; // Do nothing if textarea is empty
 
@@ -33,7 +34,12 @@ document.querySelector("button").addEventListener("click", () => {
 
     speech.text = text;
     const selectedIndex = parseInt(voicesSelect.value, 10);
-    speech.voice = voices[selectedIndex];
+    if (!isNaN(selectedIndex)) speech.voice = voices[selectedIndex];
     
     window.speechSynthesis.speak(speech);
+});
+
+// Stop button
+document.querySelector("#stopBtn").addEventListener("click", () => {
+    window.speechSynthesis.cancel();
 });
